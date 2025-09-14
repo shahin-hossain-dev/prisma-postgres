@@ -4,6 +4,15 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+//* common field attribute 
+// @id
+// @default
+// @unique
+// @updatedAt
+// @map -> map holo database er name change/rename korar jonno use kora hoy
+// @relation -> ak table er shathe onno table relation korar jonno
+
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -12,4 +21,54 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+
+//* Create Schema and Model
+
+model User {
+  id String @id @default(uuid()) // uuid() holo unique id generate korbe ata postgres e built in ace 
+  name String
+  email String @unique
+  password String
+  //movie er shathe user er many to many relation kora hoyese (propertyName Table[] @relation("commonTag"))
+  // many to many relation korar karon holo. akjeon user multiple movie watchlist e rakhte pare, abar akta movie er multiple user thakte pare
+  watchLists Movie[] @relation("UserWatchList")
+
+  //one to many relation
+  reviews Review[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("users") //@@map database e table er name 'users' name set hobe.
+}
+
+
+model Movie {
+  id String @id @default(uuid())
+  name String 
+  rating String?
+  genre String
+  releaseDate DateTime
+  //movie er shathe user er many to many relation kora hoyese (propertyName Table[] @relation("commonTag"))
+  director String
+  watchListUsers User[] @relation("UserWatchList")
+
+  // one to many relation
+  reviews Review[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("movies")
+}
+
+model Review {
+  id String @id @default(uuid())
+  comment String
+  // user User(field userId)
+  movie Movie @relation(fields: [movieId], references: [id])
+  movieId String
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("reviews")
 }
