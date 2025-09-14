@@ -51,3 +51,5 @@ datasource db {
 ### Creating the database schema model
 
 - Migrate prisma Schema
+- Install prisma client
+- prisma query

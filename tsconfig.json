@@ -7,9 +7,11 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
+    "module": "node16",
     "target": "esnext",
     "types": [],
+    "moduleResolution": "node16",
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
