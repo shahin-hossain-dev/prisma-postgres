@@ -43,10 +43,10 @@ const main = async () => {
   const createUser = await prisma.user.create({
     data: {
       name: "Akbar",
-      email: "akbar@gmail.com",
+      email: "akbar-as@gmail.com",
       password: "123456",
       watchLists: {
-        connect: [{ id: "1100bf7d-861b-496d-8a1d-b801f89d8844" }],
+        connect: [{ id: "6dc81482-37ff-44bb-8c9b-cb95697138e1" }],
       },
     },
     include: {
