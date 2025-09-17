@@ -38,23 +38,43 @@ const main = async () => {
   //   ],
   // });
 
+  // console.log(createMultipleMovie);
+
   //* create user connect watchList
 
-  const createUser = await prisma.user.create({
+  /* const createUser = await prisma.user.create({
     data: {
-      name: "Akbar",
-      email: "akbar-as@gmail.com",
+      name: "Hossain",
+      email: "hossain@gmail.com",
       password: "123456",
+      age: "20",
+      district: "Dhaka",
+      photoURL: "https://photo.com",
       watchLists: {
-        connect: [{ id: "6dc81482-37ff-44bb-8c9b-cb95697138e1" }],
+        connect: [{ id: "01c20f41-789e-4890-a370-905beb8c6619" }],
       },
     },
     include: {
       watchLists: true,
     },
   });
+ */
 
-  console.log(createUser);
+  //* create review
+
+  const createReview = await prisma.review.create({
+    data: {
+      comment: "Awesome Movie",
+      movieId: "01c20f41-789e-4890-a370-905beb8c6619",
+      userId: "36d474fd-e182-4112-90f3-7c7c7bc9f2bc",
+    },
+    include: {
+      user: true,
+      movie: true,
+    },
+  });
+
+  console.log(createReview);
 };
 
 main();

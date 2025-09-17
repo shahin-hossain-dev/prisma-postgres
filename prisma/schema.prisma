@@ -31,6 +31,12 @@ model User {
   name String
   email String @unique
   password String
+  age String?
+  photoURL String?
+
+  //existing database table e new field add korte hole first optionally add kore migrate korte hobe and then optional tule diye (prisma migrate generate) korte hobe
+  district String
+
   //movie er shathe user er many to many relation kora hoyese (propertyName Table[] @relation("commonTag"))
   // many to many relation korar karon holo. akjeon user multiple movie watchlist e rakhte pare, abar akta movie er multiple user thakte pare
   watchLists Movie[] @relation("UserWatchList")

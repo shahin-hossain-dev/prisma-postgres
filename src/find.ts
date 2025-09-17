@@ -46,7 +46,13 @@ const main = async () => {
     },
   });
 
-  console.log(findUniqueOrErrorData);
+  //find user age less than 18
+
+  const findUser = await prisma.user.findMany({
+    where: {
+      age: { gt: "21" },
+    },
+  });
 };
 
 main();
