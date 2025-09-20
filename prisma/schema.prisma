@@ -52,7 +52,7 @@ model User {
 model Movie {
   id String @id @default(uuid())
   name String 
-  rating String?
+  // rating String?
   genre String
   releaseDate DateTime
   //movie er shathe user er many to many relation kora hoyese (propertyName Table[] @relation("commonTag"))
@@ -70,6 +70,7 @@ model Review {
   id String @id @default(uuid())
   comment String
   // user User(field userId)
+  rating Float?
   movie Movie @relation(fields: [movieId], references: [id])
   movieId String
   user User @relation(fields: [userId], references: [id])

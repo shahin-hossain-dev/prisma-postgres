@@ -30,21 +30,21 @@ const advancedQuery = async () => {
     },
   });
 
-  const getMovieRatingWise = await prisma.movie.findMany({
-    where: {
-      rating: {
-        lte: "9",
-        gte: "6",
-      },
-    },
-  });
+  // const getMovieRatingWise = await prisma.movie.findMany({
+  //   where: {
+  //     rating: {
+  //       lte: "9",
+  //       gte: "6",
+  //     },
+  //   },
+  // });
 
-  const getRecentMovies = await prisma.movie.findMany({
-    orderBy: {
-      releaseDate: "desc",
-    },
-    take: 2,
-  });
+  // const getRecentMovies = await prisma.movie.findMany({
+  //   orderBy: {
+  //     releaseDate: "desc",
+  //   },
+  //   take: 2,
+  // });
 
   // task 2
 
@@ -59,7 +59,30 @@ const advancedQuery = async () => {
     },
   });
 
-  console.log(getReviewUsers);
+  //task five
+
+  const movieRatings = await prisma.review.groupBy({
+    by: ["movieId"],
+    _avg: {
+      rating: true,
+    },
+    orderBy: {
+      _avg: { rating: "desc" },
+    },
+    take: 2,
+  });
+
+  const movieIdes = movieRatings.map((item) => item.movieId);
+
+  const movies = await prisma.movie.findMany({
+    where: {
+      id: {
+        in: movieIdes,
+      },
+    },
+  });
+
+  // console.log(movies);
 };
 
 advancedQuery();

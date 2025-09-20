@@ -4,6 +4,9 @@ CREATE TABLE "public"."users" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "age" TEXT,
+    "photoURL" TEXT,
+    "district" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -28,6 +31,7 @@ CREATE TABLE "public"."movies" (
 CREATE TABLE "public"."reviews" (
     "id" TEXT NOT NULL,
     "comment" TEXT NOT NULL,
+    "rating" DOUBLE PRECISION,
     "movieId" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

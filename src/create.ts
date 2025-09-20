@@ -3,45 +3,42 @@ import { PrismaClient } from "../generated/prisma";
 const prisma = new PrismaClient();
 
 const main = async () => {
-  // create single user
+  // * create single user
   // const createUser = await prisma.user.create({
   //   data: {
-  //     name: "Shahin",
-  //     email: "shahin2@gmail.com",
+  //     name: "Hossain",
+  //     email: "Hossain@gmail.com",
   //     password: "123456",
+  //     age: "20",
+  //     district: "Dhaka",
   //   },
   // });
-
+  // * create multiple movie
   // const createMultipleMovie = await prisma.movie.createMany({
   //   data: [
   //     {
   //       name: "Inception",
-  //       rating: "8.8",
   //       genre: "Sci-Fi",
   //       director: "Hablu",
   //       releaseDate: "2010-07-16T00:00:00.000Z",
   //     },
   //     {
   //       name: "The Dark Knight",
-  //       rating: "9.0",
   //       genre: "Action",
   //       director: "Dablu",
   //       releaseDate: "2008-07-18T00:00:00.000Z",
   //     },
   //     {
   //       name: "Interstellar",
-  //       rating: "8.6",
   //       director: "Khablu",
   //       genre: "Adventure",
   //       releaseDate: "2014-11-07T00:00:00.000Z",
   //     },
   //   ],
   // });
-
   // console.log(createMultipleMovie);
-
   //* create user connect watchList
-
+  // * Create user
   /* const createUser = await prisma.user.create({
     data: {
       name: "Hossain",
@@ -59,34 +56,32 @@ const main = async () => {
     },
   });
  */
-
   //* create review
-
-  // const createReview = await prisma.review.create({
-  //   data: {
-  //     comment: "Awesome Movie",
-  //     movieId: "01c20f41-789e-4890-a370-905beb8c6619",
-  //     userId: "36d474fd-e182-4112-90f3-7c7c7bc9f2bc",
-  //   },
-  //   include: {
-  //     user: true,
-  //     movie: true,
-  //   },
-  // });
-
-  //* create single movie
-
-  const createSingleMovie = await prisma.movie.create({
+  /* const createReview = await prisma.review.create({
     data: {
-      name: "Big Hero 6",
-      genre: "Sci-Fi",
-      rating: "5",
-      releaseDate: "2010-07-16T00:00:00.000Z",
-      director: "Unknown",
+      comment: "Awesome Movie",
+      movieId: "84d97298-e3ab-499d-8f48-ebe7d5a4fffa",
+      userId: "21df55d1-08a0-4908-8c5f-48a57359b0a6",
+      rating: 4,
+    },
+    include: {
+      user: true,
+      movie: true,
     },
   });
 
-  console.log(createSingleMovie);
+  console.log(createReview); */
+  //* create single movie
+  // const createSingleMovie = await prisma.movie.create({
+  //   data: {
+  //     name: "Big Hero 6",
+  //     genre: "Sci-Fi",
+  //     rating: "5",
+  //     releaseDate: "2010-07-16T00:00:00.000Z",
+  //     director: "Unknown",
+  //   },
+  // });
+  // console.log(createSingleMovie);
 };
 
 main();
