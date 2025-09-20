@@ -14,7 +14,15 @@ const updateFn = async () => {
     },
   });
 
-  console.log(updateUser);
+  const updateMovie = await prisma.movie.update({
+    where: {
+      id: "b37ef3a9-204d-49b9-ac86-d908b9d4e7ca",
+    },
+    data: {
+      director: "Dablu",
+    },
+  });
+  console.log(updateMovie);
 };
 
 updateFn();

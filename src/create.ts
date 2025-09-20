@@ -62,19 +62,31 @@ const main = async () => {
 
   //* create review
 
-  const createReview = await prisma.review.create({
+  // const createReview = await prisma.review.create({
+  //   data: {
+  //     comment: "Awesome Movie",
+  //     movieId: "01c20f41-789e-4890-a370-905beb8c6619",
+  //     userId: "36d474fd-e182-4112-90f3-7c7c7bc9f2bc",
+  //   },
+  //   include: {
+  //     user: true,
+  //     movie: true,
+  //   },
+  // });
+
+  //* create single movie
+
+  const createSingleMovie = await prisma.movie.create({
     data: {
-      comment: "Awesome Movie",
-      movieId: "01c20f41-789e-4890-a370-905beb8c6619",
-      userId: "36d474fd-e182-4112-90f3-7c7c7bc9f2bc",
-    },
-    include: {
-      user: true,
-      movie: true,
+      name: "Big Hero 6",
+      genre: "Sci-Fi",
+      rating: "5",
+      releaseDate: "2010-07-16T00:00:00.000Z",
+      director: "Unknown",
     },
   });
 
-  console.log(createReview);
+  console.log(createSingleMovie);
 };
 
 main();
