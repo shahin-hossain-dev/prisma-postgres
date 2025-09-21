@@ -61,7 +61,7 @@ const main = async () => {
     data: {
       comment: "Awesome Movie",
       movieId: "84d97298-e3ab-499d-8f48-ebe7d5a4fffa",
-      userId: "21df55d1-08a0-4908-8c5f-48a57359b0a6",
+      userId: "e2dd65c6-7668-49e6-9a24-a4b724101011",
       rating: 4,
     },
     include: {
