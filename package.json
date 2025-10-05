@@ -8,7 +8,8 @@
     "find": "ts-node-dev --respawn --transpile-only src/find.ts",
     "update": "ts-node-dev --respawn --transpile-only src/update.ts",
     "afind": "ts-node-dev --respawn --transpile-only src/advancedQuery.ts",
-    "aggregate": "ts-node-dev --respawn --transpile-only src/aggregate.ts"
+    "aggregate": "ts-node-dev --respawn --transpile-only src/aggregate.ts",
+    "trans": "ts-node-dev --respawn --transpile-only src/transaction.ts"
   },
   "keywords": [],
   "author": "",

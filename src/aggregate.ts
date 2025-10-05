@@ -100,7 +100,7 @@ const aggregate = async () => {
     },
   });
 
-  console.log(specificRatingMovie);
+  // console.log(specificRatingMovie);
 };
 
 aggregate();
